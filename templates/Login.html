@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود / ثبت‌نام | KermanTrip</title>
+    <link rel="stylesheet" href="{% static 'css/logincss.css' %}">
+</head>
+<body>
+  
+  <form class="form" method="post" action="{% url 'main:login' %}">
+    {% csrf_token %}
+    <p class="form-title">ورود به حساب کاربری</p>
+  
+    {% if messages %}
+    {% for message in messages %}
+      <div class="alert">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+    <div class="input-container">
+      <input type="text" name="username" placeholder="نام کاربری" required>
+    </div>
+    
+  
+    <div class="input-container">
+      <input type="password" name="password" placeholder="رمز عبور" required>
+    </div>
+  
+    <button type="submit" class="submit">ورود</button>
+
+    <p class="signup-link">
+      اکانتی ندارید؟ <a href="{% url 'main:register' %}">ثبت نام</a>
+    </p>
+
+  </form>  
+ 
+</body>
+</html>

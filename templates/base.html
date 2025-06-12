@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}KermanTrip{% endblock %}</title>
+
+  <!-- Favicons و استایل‌های مشترک -->
+  <link rel="shortcut icon" href="{% static 'images/favicons/favicon.ico' %}">
+  <link rel="manifest" href="{% static 'images/favicons/manifest.json' %}">
+  <meta name="msapplication-TileImage" content="{% static 'images/favicons/mstile-150x150.png' %}">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="{% static 'css/theme-rtl.min.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Volkhov:wght@700&display=swap" rel="stylesheet">
+  <script src="{% static 'js/theme.min.js' %}"></script>
+</head>
+
+<body>
+  {% include 'partials/header.html' %}
+
+  <main class="main" id="top">
+      {% block content %}
+      {% endblock %}
+  </main>
+  {% include 'partials/footer.html' %}
+  {% include 'partials/scripts.html' %}
+</body>
+</html>
